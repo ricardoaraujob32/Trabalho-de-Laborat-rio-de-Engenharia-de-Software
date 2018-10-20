@@ -3,6 +3,8 @@ package model;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.LinkedList;
+import java.util.ListIterator;
 
 public class Pedido implements Serializable {
 
@@ -12,6 +14,11 @@ public class Pedido implements Serializable {
 	private LocalDate data;
 	private int situacaoPedido;
 	private long idCliente;
+	private LinkedList<ItemPedido> listaItens;
+	
+	public Pedido() {
+		listaItens = new LinkedList<>();
+	}
 	
 	public long getNumeroPedido() {
 		return numeroPedido;
@@ -51,5 +58,17 @@ public class Pedido implements Serializable {
 	
 	public void setIdCliente(long idCliente) {
 		this.idCliente = idCliente;
+	}
+	
+	public ItemPedido removeItem(ItemPedido p) {
+		ListIterator<ItemPedido> iterator = listaItens.listIterator();
+		
+		while ( iterator.hasNext() ) {
+			if ( iterator.next().equals(p) ) {
+				listaItens.remove(p);
+			}
+		}
+		
+		return p;
 	}
 }
