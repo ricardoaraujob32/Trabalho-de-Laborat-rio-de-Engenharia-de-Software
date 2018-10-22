@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.ListIterator;
 
 public class Pedido implements Serializable {
@@ -15,6 +16,8 @@ public class Pedido implements Serializable {
 	private int situacaoPedido;
 	private long idCliente;
 	private LinkedList<ItemPedido> listaItens;
+	
+	public static final int AGUARDANDO_PAGAMENTO = 1;
 	
 	public Pedido() {
 		listaItens = new LinkedList<>();
@@ -70,5 +73,41 @@ public class Pedido implements Serializable {
 		}
 		
 		return p;
+	}
+	
+	public List<Pizza> getPizzas(){
+		LinkedList<Pizza> lista = new LinkedList<>();		
+		ListIterator<ItemPedido> iterator = listaItens.listIterator();
+		ItemPedido item;
+		
+		while ( iterator.hasNext() ) {
+			item = iterator.next();
+			
+			if ( item instanceof Pizza ) {
+				lista.addLast( (Pizza) item);
+			}
+		}
+		
+		return lista;
+	}
+	
+	public List<Bebida> getBebidas(){
+		LinkedList<Bebida> lista = new LinkedList<>();		
+		ListIterator<ItemPedido> iterator = listaItens.listIterator();
+		ItemPedido item;
+		
+		while ( iterator.hasNext() ) {
+			item = iterator.next();
+			
+			if ( item instanceof Bebida ) {
+				lista.addLast( (Bebida) item);
+			}
+		}
+		
+		return lista;
+	}
+
+	public void setListaItens(List<ItemPedido> l) {
+		listaItens = ( LinkedList<ItemPedido> ) l;
 	}
 }

@@ -8,6 +8,7 @@ public class Sabor implements Serializable {
 	private long id;
 	private String nome;
 	private double valor;
+	private long idPizza;
 	
 	public long getId() {
 		return id;
@@ -31,5 +32,13 @@ public class Sabor implements Serializable {
 	
 	public void setValor(double valor) {
 		this.valor = valor;
+	}
+
+	public long getIdPizza() {
+		return idPizza;
+	}
+
+	public void setIdPizza(long idPizza) {
+		this.idPizza = idPizza;
 	}
 }
