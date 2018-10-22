@@ -5,10 +5,10 @@ import java.io.Serializable;
 public abstract class ItemPedido implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private long id;
-	private double valor;
-	private String descricao;
-	private long numeroPedido;
+	protected long id;
+	protected double valor;
+	protected String descricao;
+	protected long numeroPedido;
 	
 	public long getId() {
 		return id;

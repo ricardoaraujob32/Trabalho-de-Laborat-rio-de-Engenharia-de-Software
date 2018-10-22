@@ -6,14 +6,13 @@ import java.util.List;
 public class Pizza extends ItemPedido {
 
 	private static final long serialVersionUID = 1L;
-	private int tamanho;
 	private int qtdSabores;
 	private boolean bordaRecheada;
 	private LinkedList<Sabor> listaSabores;
 	
-	public static final int PEQUENA = 4;
-	public static final int MEDIA = 6;
-	public static final int GRANDE = 8;
+	private static final int PEQUENA = 4;
+	private static final int MEDIA = 6;
+	private static final int GRANDE = 8;
 	
 	public static final int UM_SABOR = 1;
 	public static final int DOIS_SABORES = 2;
@@ -22,15 +21,7 @@ public class Pizza extends ItemPedido {
 	public Pizza() {
 		listaSabores = new LinkedList<>();
 	}
-	
-	public int getTamanho() {
-		return tamanho;
-	}
-
-	public void setTamanho(int tamanho) {
-		this.tamanho = tamanho;
-	}
-	
+		
 	public int getQtdSabores() {
 		return qtdSabores;
 	}
@@ -53,5 +44,15 @@ public class Pizza extends ItemPedido {
 
 	public void setListaSabores(List<Sabor> l) {
 		listaSabores = ( LinkedList<Sabor> ) l;
+	}
+
+	public long getTamanho() {
+		if ( "pequena".equals(descricao) ) {
+			return PEQUENA;
+		} else if ( "média".equals(descricao) ) {
+			return MEDIA;
+		} else {
+			return GRANDE;
+		}
 	}
 }

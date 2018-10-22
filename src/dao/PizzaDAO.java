@@ -20,8 +20,8 @@ public class PizzaDAO extends AbstractDAO<Pizza> {
 
 	@Override
 	public void inserir(Pizza p) throws GenericDAOException {
-		String sql = "INSERT INTO tbl_pizza(id_pizza, numero_pedido, id_tamanho, qtd_sabores_pizza, valor_pizza, borda_recheada) "
-				+ "VALUES(?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO tbl_pizza(id_pizza, numero_pedido, id_tamanho, qtd_sabores_pizza, valor_pizza, "
+				+ "borda_recheada) VALUES(?, ?, ?, ?, ?, ?)";
 		
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -92,7 +92,10 @@ public class PizzaDAO extends AbstractDAO<Pizza> {
 	
 	public List<Pizza> pesquisar(long idPedido) throws GenericDAOException {
 		LinkedList<Pizza> lista =  new LinkedList<>();
-		String sql = "SELECT * FROM tbl_pizza WHERE numero_pedido = ?";
+		String sql = "SELECT tbl_pizza.id_pizza, tbl_pizza.qtd_sabores_pizza, tbl_pizza.valor_pizza, "
+				+ "tbl_pizza.borda_recheada, tbl_tamanho.descricao_tamanho "
+				+ "FROM tbl_pizza tp INNER JOIN tbl_tamanho tt ON tp.id_tamanho = tt.id_tamanho "
+				+ "WHERE numero_pedido = ?";
 		
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -105,11 +108,11 @@ public class PizzaDAO extends AbstractDAO<Pizza> {
 				Pizza p = new Pizza();
 				
 				p.setId( rs.getLong("id_pizza") );
-				p.setNumeroPedido( rs.getLong("numero_pedido") );
-				p.setTamanho( rs.getInt("id_tamanho") );
+				p.setNumeroPedido( idPedido );
 				p.setQtdSabores( rs.getInt("qtd_sabores_pizza") );
 				p.setValor( rs.getDouble("valor_pizza") );
 				p.setBordaRecheada( rs.getBoolean("borda_recheada") );
+				p.setDescricao( rs.getString("descricao_tamanho") );
 				
 				List<Sabor> listaSabor = saborDao.pesquisar( p.getId() );
 				p.setListaSabores(listaSabor);

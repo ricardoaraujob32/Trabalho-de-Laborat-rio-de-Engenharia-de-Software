@@ -10,16 +10,14 @@ import model.Cliente;
 
 public class ClienteDAO extends AbstractDAO<Cliente> {
 	
-	private static final String CAMPOS =  "id_cliente, login_cliente, senha_cliente, nome_cliente, bairro_cliente, " + 
-							"logradouro_cliente, telefone_cliente, email_cliente";
-
 	public ClienteDAO() throws GenericDAOException {
 		super();
 	}
 
 	@Override
 	public void inserir(Cliente c) throws GenericDAOException {
-		String sql = "INSERT INTO tbl_cliente(" + CAMPOS + ") "
+		String sql = "INSERT INTO tbl_cliente(id_cliente, login_cliente, senha_cliente, nome_cliente, "
+				+ "bairro_cliente, logradouro_cliente, telefone_cliente, email_cliente) "
 				+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		try {
@@ -85,8 +83,7 @@ public class ClienteDAO extends AbstractDAO<Cliente> {
 		LinkedList<Cliente> lista = new LinkedList<>();
 		
 		try {
-			PreparedStatement ps = con.prepareStatement(sql);
-			
+			PreparedStatement ps = con.prepareStatement(sql);			
 			ResultSet rs = ps.executeQuery();
 			
 			while ( rs.next() ) {

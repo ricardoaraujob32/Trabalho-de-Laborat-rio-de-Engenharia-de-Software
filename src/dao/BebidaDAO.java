@@ -72,8 +72,10 @@ public class BebidaDAO extends AbstractDAO<Bebida> {
 	
 	public List<Bebida> pesquisar(long idPedido) throws GenericDAOException {
 		LinkedList<Bebida> lista = new LinkedList<>();
-		String sql = "SELECT tbl_item_bebida.id_item_bebida, tbl_item_bebida.valor_item, tbl_bebida.descricao_bebida "
+		String sql = "SELECT tbl_item_bebida.id_item_bebida, tbl_item_bebida.valor_item, "
+				+ "tbl_bebida.descricao_bebida, tbl_tipo_bebida.descricao_tipo "
 				+ "FROM tbl_item_bebida tib INNER JOIN tbl_bebida tb ON tib.id_bebida = tb.id_bebida "
+				+ "INNER JOIN tbl_tipo_bebida ttb ON tb.id_tipo_bebida = ttb.id_tipo_bebida "
 				+ "WHERE tbl_item_bebida.numero_pedido = ?";
 		
 		try {
@@ -89,6 +91,7 @@ public class BebidaDAO extends AbstractDAO<Bebida> {
 				b.setId( rs.getLong("id_item_bebida") );
 				b.setNumeroPedido( idPedido );
 				b.setDescricao( rs.getString("descricao_bebida") );
+				b.setTipo( rs.getString("descricao_tipo") );
 				
 				lista.addLast(b);
 			}
