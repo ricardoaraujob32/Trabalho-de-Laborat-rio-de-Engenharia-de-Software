@@ -21,3 +21,6 @@ $RECYCLE.BIN/
 # =========================
 # Operating System Files
 # =========================
+
+#backup do visual paradize
+ *.vpp.bak*

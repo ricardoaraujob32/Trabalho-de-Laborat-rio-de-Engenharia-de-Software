@@ -73,11 +73,11 @@ public class PedidoDAO extends AbstractDAO<Pedido> {
 			ps.executeUpdate();
 			
 			for (Pizza pizza : listaPizza) {
-				pizzaDao.inserir(pizza);				
+				pizzaDao.atualizar(pizza);				
 			}
 			
 			for (Bebida bebida : listaBebida) {
-				bebidaDao.inserir(bebida);
+				bebidaDao.atualizar(bebida);
 			}
 		} catch (SQLException e) {
 			throw new GenericDAOException(e);
