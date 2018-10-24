@@ -23,6 +23,6 @@ $RECYCLE.BIN/
 # =========================
 
 #backup do visual paradize
- *.vpp.bak*
+ *bak*
 #build
 *.class
