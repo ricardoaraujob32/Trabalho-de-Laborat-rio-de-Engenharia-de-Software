@@ -62,19 +62,7 @@ public class Pedido implements Serializable {
 	public void setIdCliente(long idCliente) {
 		this.idCliente = idCliente;
 	}
-	
-	public ItemPedido removeItem(ItemPedido p) {
-		ListIterator<ItemPedido> iterator = listaItens.listIterator();
 		
-		while ( iterator.hasNext() ) {
-			if ( iterator.next().equals(p) ) {
-				listaItens.remove(p);
-			}
-		}
-		
-		return p;
-	}
-	
 	public List<Pizza> getPizzas(){
 		LinkedList<Pizza> lista = new LinkedList<>();		
 		ListIterator<ItemPedido> iterator = listaItens.listIterator();
