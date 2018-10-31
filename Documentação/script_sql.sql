@@ -1,7 +1,6 @@
 CREATE TABLE tbl_cliente (
 	id_cliente integer NOT NULL,
 	login_cliente char(50),
-	login_cliente char(50),
 	senha_cliente char(50),	
 	nome_cliente char(50),
 	bairro_cliente char(50),
@@ -15,7 +14,7 @@ CREATE TABLE tbl_pedido(
 	numero_pedido integer NOT NULL,
 	id_cliente integer,
 	hora_pedido time,
-	data_pedido data,
+	data_pedido date,
 	situacao_pedido char(15),
 	PRIMARY KEY (numero_pedido)
 );
@@ -38,7 +37,7 @@ CREATE TABLE tbl_bebida(
 );
 
 
-CREATE TABLE tbl_bebida(
+CREATE TABLE tbl_tipo_bebida(
 	id_tipo_bebida integer NOT NULL,
 	descricao_tipo varchar(255),
 	PRIMARY KEY (id_tipo_bebida)
@@ -73,7 +72,7 @@ CREATE TABLE tbl_pizza(
 
 CREATE TABLE tbl_tamanho(
 	id_tamanho integer NOT NULL,
-	descricao_tamanho char(50)
+	descricao_tamanho char(50),
 	num_max_pedacos tinyint,
 	qtd_sabores_tamanho tinyint,
 	PRIMARY KEY (id_tamanho)
