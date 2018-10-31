@@ -1,0 +1,80 @@
+CREATE TABLE tbl_cliente (
+	id_cliente integer NOT NULL,
+	login_cliente char(50),
+	login_cliente char(50),
+	senha_cliente char(50),	
+	nome_cliente char(50),
+	bairro_cliente char(50),
+	logradouro_cliente char(50),
+	telefone_cliente char(50),
+	email_cliente varchar(255),
+	PRIMARY KEY (id_cliente)
+);
+
+CREATE TABLE tbl_pedido(
+	numero_pedido integer NOT NULL,
+	id_cliente integer,
+	hora_pedido time,
+	data_pedido data,
+	situacao_pedido char(15),
+	PRIMARY KEY (numero_pedido)
+);
+
+
+CREATE TABLE tbl_item_bebida(
+	id_item_bebida integer NOT NULL,
+	id_bebida integer,
+	numero_pedido integer,
+	valor_item decimal(5,2),
+	PRIMARY KEY (id_item_bebida)
+);
+
+
+CREATE TABLE tbl_bebida(
+	id_bebida integer NOT NULL,
+	id_tipo_bebida integer,
+	descricao_bebida,
+	PRIMARY KEY (id_bebida)
+);
+
+
+CREATE TABLE tbl_bebida(
+	id_tipo_bebida integer NOT NULL,
+	descricao_tipo varchar(255),
+	PRIMARY KEY (id_tipo_bebida)
+);
+
+
+CREATE TABLE tbl_sabor(
+	id_sabor integer NOT NULL,
+	nome_sabor varchar(255),
+	valor_sabor decimal(5,2),
+	PRIMARY KEY (id_sabor)
+);
+
+
+CREATE TABLE tbl_item_sabor(
+	id_item_sabor integer NOT NULL,
+	id_pizza integer,
+	id_sabor integer,
+	PRIMARY KEY (id_item_sabor)
+);
+
+
+CREATE TABLE tbl_pizza(
+	id_pizza integer NOT NULL,
+	numero_pedido integer,
+	id_tamanho integer,
+	qtd_sabores_pizza tinyint,
+	valor_pizza decimal(5,2),
+	PRIMARY KEY (id_pizza)
+);
+
+
+CREATE TABLE tbl_tamanho(
+	id_tamanho integer NOT NULL,
+	descricao_tamanho char(50)
+	num_max_pedacos tinyint,
+	qtd_sabores_tamanho tinyint,
+	PRIMARY KEY (id_tamanho)
+);
