@@ -2,5 +2,5 @@
 
 Trabalho de lab de engenharia de software da Fatec-zl
 
-## Alex Silva de Aguair
+## Alex Silva de Aguiar
 ## Ricardo de Araujo Balduino
