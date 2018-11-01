@@ -1,3 +1,6 @@
+create database pizzaria;
+use pizzaria;
+
 CREATE TABLE tbl_cliente (
 	id_cliente integer NOT NULL,
 	login_cliente char(50),
@@ -32,7 +35,7 @@ CREATE TABLE tbl_item_bebida(
 CREATE TABLE tbl_bebida(
 	id_bebida integer NOT NULL,
 	id_tipo_bebida integer,
-	descricao_bebida,
+	descricao_bebida varchar(255),
 	PRIMARY KEY (id_bebida)
 );
 
@@ -77,3 +80,49 @@ CREATE TABLE tbl_tamanho(
 	qtd_sabores_tamanho tinyint,
 	PRIMARY KEY (id_tamanho)
 );
+
+
+
+
+
+
+-- tbl_pedido-------------------------------
+
+ALTER TABLE tbl_pedido
+ADD FOREIGN KEY (id_cliente) REFERENCES tbl_cliente(id_cliente);
+
+
+-- tbl_item_bebida-------------------------------
+
+ALTER TABLE tbl_item_bebida
+ADD FOREIGN KEY (id_bebida) REFERENCES tbl_bebida(id_bebida);
+
+ALTER TABLE tbl_item_bebida
+ADD FOREIGN KEY (numero_pedido) REFERENCES tbl_pedido(numero_pedido);
+
+
+-- tbl_bebida-------------------------------
+
+ALTER TABLE tbl_bebida
+ADD FOREIGN KEY (id_tipo_bebida) REFERENCES tbl_tipo_bebida(id_tipo_bebida);
+
+
+
+
+-- tbl_pizza-------------------------------
+
+ALTER TABLE tbl_pizza
+ADD FOREIGN KEY (numero_pedido) REFERENCES tbl_pedido(numero_pedido);
+
+ALTER TABLE tbl_pizza
+ADD FOREIGN KEY (id_tamanho) REFERENCES tbl_tamanho(id_tamanho);
+
+
+
+-- tbl_item_sabor-------------------------------
+
+ALTER TABLE tbl_item_sabor
+ADD FOREIGN KEY (id_pizza) REFERENCES tbl_pizza(id_pizza);
+
+ALTER TABLE tbl_item_sabor
+ADD FOREIGN KEY (id_sabor) REFERENCES tbl_sabor(id_sabor);
