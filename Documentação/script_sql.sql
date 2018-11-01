@@ -1,3 +1,6 @@
+
+-- scripts para criação das tabelas e relacionamentos entre elas
+
 create database pizzaria;
 use pizzaria;
 
