@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
 <style>
 * {box-sizing: border-box;}
 
@@ -18,7 +19,7 @@ body {
 
 .header a {
   float: left;
-  color: black;
+  color: white;
   text-align: center;
   padding: 12px;
   text-decoration: none;
@@ -38,7 +39,7 @@ body {
 }
 
 .header a.active {
-  background-color: dodgerblue;
+  background-color: #2b1a1d;
   color: white;
 }
 
