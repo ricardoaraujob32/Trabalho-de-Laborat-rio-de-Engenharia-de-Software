@@ -1,5 +1,5 @@
 
--- scripts para criaÃ§Ã£o das tabelas e relacionamentos entre elas
+-- scripts para criacao das tabelas e relacionamentos entre elas
 
 create database pizzaria;
 use pizzaria;
@@ -39,6 +39,7 @@ CREATE TABLE tbl_bebida(
 	id_bebida integer NOT NULL,
 	id_tipo_bebida integer,
 	descricao_bebida varchar(255),
+	valor_bebida decimal(5,2,)
 	PRIMARY KEY (id_bebida)
 );
 
@@ -168,17 +169,17 @@ insert into tbl_bebida (id_bebida, descricao_bebida,valor_bebida, id_tipo_bebida
 values (1, 'coca', 2, 1);
 
 insert into tbl_bebida (id_bebida, descricao_bebida,valor_bebida, id_tipo_bebida) 
-values (1, 'fanta', 2, 1);
+values (2, 'fanta', 2, 1);
 insert into tbl_bebida (id_bebida, descricao_bebida,valor_bebida, id_tipo_bebida) 
-values (1, 'pepsi', 2, 1);
+values (3, 'pepsi', 2, 1);
 insert into tbl_bebida (id_bebida, descricao_bebida,valor_bebida, id_tipo_bebida) 
-values (1, 'itubaina', 2, 1);
+values (4, 'itubaina', 2, 1);
 
 
 insert into tbl_bebida (id_bebida, descricao_bebida,valor_bebida, id_tipo_bebida) 
 values (1, 'SKOL', 5, 2);
 insert into tbl_bebida (id_bebida, descricao_bebida,valor_bebida, id_tipo_bebida) 
-values (1, 'Bhrama', 5, 2);
+values (2, 'Bhrama', 5, 2);
 
 
 insert into tbl_sabor (id_sabor,nome_sabor,valor_sabor) 
