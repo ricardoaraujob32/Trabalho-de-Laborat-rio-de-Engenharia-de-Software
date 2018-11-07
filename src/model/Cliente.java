@@ -13,6 +13,7 @@ public class Cliente implements Serializable {
 	private String logradouro;
 	private String telefone;
 	private String email;
+	private boolean logado;
 	
 	public long getId() {
 		return id;
@@ -76,5 +77,13 @@ public class Cliente implements Serializable {
 	
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public boolean getLogado() {
+		return logado;
+	}
+
+	public void setLogado(boolean logado) {
+		this.logado = logado;
 	}
 }
