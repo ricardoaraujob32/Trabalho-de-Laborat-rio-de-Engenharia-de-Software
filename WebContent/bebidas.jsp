@@ -40,10 +40,28 @@ background-color:gray;
 	}
 </style>
 
+
+<script>
+	$(document).ready(function() {
+		$(".card").on("click", function() {
+		
+			console.log($(this).attr("id"))
+			$(".submit").val($(this).attr("id"));
+			$(".form").submit();
+			
+		})
+	
+	});
+</script>
+<form class="form" action="./bebidas" method="POST">
+  <input type="hidden" class="submit"name="pizza" value="">
+</form> 
+
+
 <div class="container">
 	<div class="row">
 		<div class="card">
-			<img src="https://cdn.pixabay.com/photo/2016/07/24/16/39/beer-1538754_960_720.png"
+			<img src="https://superprix.vteximg.com.br/arquivos/ids/175068-600-600/Cerveja-Eisenbahn-Pilsen-600ml.png?v=636280351726700000"
 				alt="Avatar" style="width: 100%">
 			<div class="container">
 				<h4>
@@ -52,8 +70,9 @@ background-color:gray;
 				<p>R$: 30,00</p>
 			</div>
 		</div>
-		<div class="card">
-			<img src="https://cdn.pixabay.com/photo/2016/07/24/16/39/beer-1538754_960_720.png"
+		
+				<div class="card">
+			<img src="https://superprix.vteximg.com.br/arquivos/ids/175068-600-600/Cerveja-Eisenbahn-Pilsen-600ml.png?v=636280351726700000"
 				alt="Avatar" style="width: 100%">
 			<div class="container">
 				<h4>
@@ -62,19 +81,9 @@ background-color:gray;
 				<p>R$: 30,00</p>
 			</div>
 		</div>
-		<div class="card">
-			<img src="https://cdn.pixabay.com/photo/2016/07/24/16/39/beer-1538754_960_720.png"
-				alt="Avatar" style="width: 100%">
-			<div class="container">
-				<h4>
-					<b>SKOL</b>
-				</h4>
-				<p>R$: 30,00</p>
-				
-			</div>
-		</div>
-		<div class="card">
-			<img src="https://cdn.pixabay.com/photo/2016/07/24/16/39/beer-1538754_960_720.png"
+		
+				<div class="card">
+			<img src="https://superprix.vteximg.com.br/arquivos/ids/175068-600-600/Cerveja-Eisenbahn-Pilsen-600ml.png?v=636280351726700000"
 				alt="Avatar" style="width: 100%">
 			<div class="container">
 				<h4>
@@ -83,7 +92,19 @@ background-color:gray;
 				<p>R$: 30,00</p>
 			</div>
 		</div>
-
+		
+				<div class="card">
+			<img src="https://superprix.vteximg.com.br/arquivos/ids/175068-600-600/Cerveja-Eisenbahn-Pilsen-600ml.png?v=636280351726700000"
+				alt="Avatar" style="width: 100%">
+			<div class="container">
+				<h4>
+					<b>SKOL</b>
+				</h4>
+				<p>R$: 30,00</p>
+			</div>
+		</div>
+		
+		
 
 	</div>
 </div>
