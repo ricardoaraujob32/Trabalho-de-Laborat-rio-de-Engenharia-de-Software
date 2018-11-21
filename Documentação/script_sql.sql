@@ -1,6 +1,8 @@
 
 -- scripts para criacao das tabelas e relacionamentos entre elas
 
+
+drop database IF EXISTS pizzaria;
 create database pizzaria;
 use pizzaria;
 
@@ -39,7 +41,7 @@ CREATE TABLE tbl_bebida(
 	id_bebida integer NOT NULL,
 	id_tipo_bebida integer,
 	descricao_bebida varchar(255),
-	valor_bebida decimal(5,2,)
+	valor_bebida decimal(5,2),
 	PRIMARY KEY (id_bebida)
 );
 
@@ -140,7 +142,6 @@ ADD FOREIGN KEY (id_sabor) REFERENCES tbl_sabor(id_sabor);
 
 
 
---populando a tabela--
 
 insert into tbl_tipo_bebida (id_tipo_bebida, descricao_tipo)
 VALUES (1,"refri");
@@ -177,25 +178,24 @@ values (4, 'itubaina', 2, 1);
 
 
 insert into tbl_bebida (id_bebida, descricao_bebida,valor_bebida, id_tipo_bebida) 
-values (1, 'SKOL', 5, 2);
+values (5, 'SKOL', 5, 2);
 insert into tbl_bebida (id_bebida, descricao_bebida,valor_bebida, id_tipo_bebida) 
-values (2, 'Bhrama', 5, 2);
+values (6, 'Bhrama', 5, 2);
 
 
+insert into tbl_sabor (id_sabor,nome_sabor,valor_sabor)values (1, 'MUSSARELA', 20);
 insert into tbl_sabor (id_sabor,nome_sabor,valor_sabor) 
-values (1, 'MUSSARELA', 20,);
+values (2, 'CALABREZA', 20);
 insert into tbl_sabor (id_sabor,nome_sabor,valor_sabor) 
-values (2, 'CALABREZA', 20,);
+values (3, '4 QUEIJOS', 20);
 insert into tbl_sabor (id_sabor,nome_sabor,valor_sabor) 
-values (3, '4 QUEIJOS', 20,);
+values (4, 'PEPERONI', 20);
 insert into tbl_sabor (id_sabor,nome_sabor,valor_sabor) 
-values (4, 'PEPERONI', 20,);
+values (5, 'FRANCESA', 20);
 insert into tbl_sabor (id_sabor,nome_sabor,valor_sabor) 
-values (5, 'FRANCESA', 20,);
+values (6, 'BRASILEIRA', 20);
 insert into tbl_sabor (id_sabor,nome_sabor,valor_sabor) 
-values (6, 'BRASILEIRA', 20,);
-insert into tbl_sabor (id_sabor,nome_sabor,valor_sabor) 
-values (7, 'MODA DA CASA', 20,);
+values (7, 'MODA DA CASA', 20);
 
 
 
